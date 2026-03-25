@@ -30,9 +30,9 @@ const Contact = () => {
     setStatus("sending");
 
     // Replace with your EmailJS credentials
-    const serviceId = 'YOUR_SERVICE_ID';
-    const templateId = 'YOUR_TEMPLATE_ID';
-    const publicKey = 'YOUR_PUBLIC_KEY';
+    const serviceId = 'service_hdl1lu7';
+    const templateId = 'template_vktm3wm';
+    const publicKey = 'ECmp3kEa41R_g5yr1';
 
     emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then(() => {

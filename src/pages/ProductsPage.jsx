@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
-import CTA from '../components/Cta';
 import Footer from '../components/Footer';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -39,8 +38,7 @@ const products = [
     category: "sunglasses",
     desc: "Timeless polarized sunglasses offering 100% UVA/UVB protection.",
     price: "₦150,000",
-    image: glass3,
-    filter: "grayscale(100%)"
+    image: glass3
   },
   {
     id: 4,
