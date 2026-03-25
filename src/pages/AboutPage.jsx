@@ -37,9 +37,18 @@ const AboutPage = () => {
       y: 30, opacity: 0, duration: 0.6, stagger: 0.1
     });
 
-    gsap.from(".value-card", {
-      scrollTrigger: { trigger: ".value-grid", start: "top 80%" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power2.out"
+    gsap.utils.toArray(".value-card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        delay: i * 0.15,
+        ease: "power2.out"
+      });
     });
   }, { scope: container });
 

@@ -16,9 +16,11 @@ const WhyUs = () => {
       y: 30, opacity: 0, duration: 0.6, stagger: 0.1
     });
 
-    gsap.from(".why-card", {
-      scrollTrigger: { trigger: ".why-grid", start: "top 80%" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: "back.out(1.2)"
+    gsap.utils.toArray(".why-card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: "back.out(1.2)"
+      });
     });
   }, { scope: container });
 

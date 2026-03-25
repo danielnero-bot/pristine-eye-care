@@ -3,6 +3,11 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
+import ServicesPage from "../pages/ServicesPage";
+import AboutPage from "../pages/AboutPage";
+import ProductsPage from "../pages/ProductsPage";
+import ContactPage from "../pages/ContactPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,10 +51,10 @@ const Footer = () => {
           <div className="footer-block">
             <h4 className="font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3 text-slate-600">
-              <li><a href="#" className="hover:text-red-700 transition">About Clinic</a></li>
-              <li><a href="#" className="hover:text-red-700 transition">Our Services</a></li>
-              <li><a href="#" className="hover:text-red-700 transition">Eyewear Collection</a></li>
-              <li><a href="#" className="hover:text-red-700 transition">Book Appointment</a></li>
+              <li><Link to="/about" className="hover:text-red-700 transition">About Clinic</Link></li>
+              <li><Link to="/services" className="hover:text-red-700 transition">Our Services</Link></li>
+              <li><Link to="/products" className="hover:text-red-700 transition">Eyewear Collection</Link></li>
+              <li><Link to="/contact" className="hover:text-red-700 transition">Book Appointment</Link></li>
             </ul>
           </div>
 

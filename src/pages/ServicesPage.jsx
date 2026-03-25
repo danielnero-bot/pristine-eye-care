@@ -53,19 +53,25 @@ const ServicesPage = () => {
       y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", delay: 0.2
     });
 
-    gsap.from(".service-card", {
-      scrollTrigger: { trigger: ".service-grid", start: "top 80%" },
-      y: 40, opacity: 0, duration: 0.5, stagger: 0.1, ease: "power2.out"
+    gsap.utils.toArray(".service-card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        y: 40, opacity: 0, duration: 0.5, delay: i * 0.1, ease: "power2.out"
+      });
     });
     
-    gsap.from(".split-section", {
-      scrollTrigger: { trigger: ".split-section", start: "top 75%" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.3
+    gsap.utils.toArray(".split-section").forEach((section) => {
+      gsap.from(section, {
+        scrollTrigger: { trigger: section, start: "top 80%" },
+        y: 40, opacity: 0, duration: 0.6
+      });
     });
 
-    gsap.from(".process-step", {
-      scrollTrigger: { trigger: ".process-container", start: "top 80%" },
-      scale: 0.9, y: 30, opacity: 0, duration: 0.5, stagger: 0.2, ease: "back.out(1.2)"
+    gsap.utils.toArray(".process-step").forEach((step, i) => {
+      gsap.from(step, {
+        scrollTrigger: { trigger: step, start: "top 85%" },
+        scale: 0.9, y: 30, opacity: 0, duration: 0.5, delay: i * 0.2, ease: "back.out(1.2)"
+      });
     });
   }, { scope: container });
 

@@ -34,7 +34,12 @@ const Navbar = () => {
           >
             Eyewear
           </NavLink>
-          <a href="#" className="text-slate-600 hover:text-red-600 font-medium transition">Contact</a>
+          <NavLink 
+            to="/contact" 
+            className={({isActive}) => isActive ? "text-red-700 font-bold border-b-2 border-red-700" : "text-slate-600 hover:text-red-600 font-medium transition"}
+          >
+            Contact
+          </NavLink>
 
           <button className="bg-red-700 hover:bg-red-800 transition text-white px-6 py-2.5 rounded-lg font-bold">
             Book Appointment

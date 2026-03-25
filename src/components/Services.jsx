@@ -26,9 +26,11 @@ const Services = () => {
       y: 30, opacity: 0, duration: 0.6
     });
 
-    gsap.from(".service-card", {
-      scrollTrigger: { trigger: ".services-grid", start: "top 80%" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
+    gsap.utils.toArray(".service-card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: "power2.out"
+      });
     });
   }, { scope: container });
 
