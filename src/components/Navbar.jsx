@@ -22,7 +22,18 @@ const Navbar = () => {
           >
             About
           </NavLink>
-          <a href="#" className="text-slate-600 hover:text-red-600 font-medium transition">Services</a>
+          <NavLink 
+            to="/services" 
+            className={({isActive}) => isActive ? "text-red-700 font-bold border-b-2 border-red-700" : "text-slate-600 hover:text-red-600 font-medium transition"}
+          >
+            Services
+          </NavLink>
+          <NavLink 
+            to="/products" 
+            className={({isActive}) => isActive ? "text-red-700 font-bold border-b-2 border-red-700" : "text-slate-600 hover:text-red-600 font-medium transition"}
+          >
+            Eyewear
+          </NavLink>
           <a href="#" className="text-slate-600 hover:text-red-600 font-medium transition">Contact</a>
 
           <button className="bg-red-700 hover:bg-red-800 transition text-white px-6 py-2.5 rounded-lg font-bold">

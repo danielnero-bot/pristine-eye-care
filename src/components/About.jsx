@@ -1,23 +1,54 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FiCheck } from "react-icons/fi";
+import Interior from "../images/interior.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 75%",
+      }
+    });
+
+    tl.from(".about-image-container", {
+      x: -50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".about-text > *", {
+      x: 30,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out"
+    }, "-=0.4");
+  }, { scope: container });
+
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section ref={container} className="py-24 bg-white relative overflow-hidden">
       {/* Subtle red accent line */}
       <div className="absolute top-0 left-0 w-1/3 h-1 bg-linear-to-r from-red-700 to-red-500"></div>
 
       <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative">
+        <div className="about-image-container relative">
           <div className="absolute -inset-4 bg-red-50 rounded-3xl transform rotate-3 -z-10"></div>
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
+            src={Interior}
             alt="Pristine Clinic Interior"
             className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
           />
         </div>
 
-        <div>
+        <div className="about-text">
           <h4 className="text-red-700 font-bold uppercase tracking-wider mb-2 text-sm">About Pristine</h4>
           <h2 className="text-4xl font-extrabold mb-6 text-slate-900 leading-tight">
             Redefining the <br/><span className="text-red-700">Optical Experience</span>
