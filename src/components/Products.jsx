@@ -41,9 +41,11 @@ const Products = () => {
       y: 30, opacity: 0, duration: 0.6, stagger: 0.1
     });
 
-    gsap.from(".product-item", {
-      scrollTrigger: { trigger: ".product-grid", start: "top 80%" },
-      y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
+    gsap.utils.toArray(".product-item").forEach((item, i) => {
+      gsap.from(item, {
+        scrollTrigger: { trigger: item, start: "top 90%" },
+        y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: "power2.out"
+      });
     });
   }, { scope: container });
 

@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import emailjs from '@emailjs/browser';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const container = useRef(null);
+  const form = useRef();
+  const [status, setStatus] = useState("idle");
 
   useGSAP(() => {
     gsap.from(".contact-info > *", {
@@ -20,6 +23,27 @@ const Contact = () => {
       x: 30, opacity: 0, duration: 0.8, ease: "power2.out"
     });
   }, { scope: container });
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    // Replace with your EmailJS credentials
+    const serviceId = 'YOUR_SERVICE_ID';
+    const templateId = 'YOUR_TEMPLATE_ID';
+    const publicKey = 'YOUR_PUBLIC_KEY';
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+      .then(() => {
+          setStatus("success");
+          form.current.reset();
+          setTimeout(() => setStatus("idle"), 5000);
+      }, (error) => {
+          setStatus("error");
+          console.error(error.text);
+          setTimeout(() => setStatus("idle"), 5000);
+      });
+  };
 
   return (
     <section ref={container} className="py-24 bg-gray-50 relative overflow-hidden">
@@ -63,31 +87,60 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact-form bg-white p-10 rounded-2xl shadow-lg border border-gray-100 space-y-6 relative z-10">
+        <form ref={form} onSubmit={sendEmail} className="contact-form bg-white p-10 rounded-2xl shadow-lg border border-gray-100 space-y-6 relative z-10 overflow-hidden">
+          
+          {status === "success" && (
+            <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-8">
+              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-4">
+                ✓
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+              <p className="text-slate-600 text-sm">We will get back to you shortly.</p>
+            </div>
+          )}
+
+          {status === "error" && (
+            <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm font-medium">
+              Oops! Something went wrong. Please try again.
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-6">
             <input
               type="text"
+              name="user_firstname"
+              required
               placeholder="First Name"
               className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200"
             />
             <input
               type="text"
+              name="user_lastname"
+              required
               placeholder="Last Name"
               className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200"
             />
           </div>
           <input
             type="email"
+            name="user_email"
+            required
             placeholder="Email Address"
             className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200"
           />
           <textarea
+            name="message"
+            required
             rows="4"
             placeholder="How can we help you?"
             className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200 resize-none"
           ></textarea>
-          <button className="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5" type="button">
-            Send Message
+          <button 
+            disabled={status === "sending"}
+            className="w-full bg-red-700 hover:bg-red-800 disabled:bg-red-400 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5" 
+            type="submit"
+          >
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

@@ -105,16 +105,18 @@ const ProductsPage = () => {
       y: 20, opacity: 0, duration: 0.5, stagger: 0.1
     });
 
-    gsap.from(".product-card", {
-      scrollTrigger: { trigger: ".product-grid", start: "top 80%" },
-      scale: 0.95, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
+    gsap.utils.toArray(".product-card").forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        scale: 0.95, opacity: 0, duration: 0.6, delay: i * 0.05, ease: "power2.out"
+      });
     });
 
     gsap.from(".custom-cta > *", {
       scrollTrigger: { trigger: ".custom-cta", start: "top 80%" },
       y: 30, opacity: 0, duration: 0.6, stagger: 0.15
     });
-  }, { scope: container });
+  }, { scope: container, dependencies: [activeCategory] });
 
   const filteredProducts = activeCategory === "all" 
     ? products 

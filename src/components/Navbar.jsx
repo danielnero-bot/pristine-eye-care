@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -47,7 +48,7 @@ const Navbar = () => {
         </div>
 
         <button className="md:hidden text-2xl text-slate-800">
-          <span className="material-symbols-outlined">menu</span>
+          <MdMenu />
         </button>
       </div>
     </nav>
