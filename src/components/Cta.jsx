@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,9 +24,11 @@ const CTA = () => {
           Schedule your consultation with our specialists today.
         </p>
 
+        <Link to="/contact">
         <button className="bg-white hover:bg-gray-50 text-red-700 px-8 py-4 rounded-xl font-bold shadow-lg transition-transform transform hover:-translate-y-1">
           Book My Consultation
         </button>
+        </Link>
       </div>
     </section>
   );

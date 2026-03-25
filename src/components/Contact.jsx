@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import emailjs from '@emailjs/browser';
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,14 +111,14 @@ const Contact = () => {
               type="text"
               name="user_firstname"
               required
-              placeholder="First Name"
+              placeholder="Janet"
               className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200"
             />
             <input
               type="text"
               name="user_lastname"
               required
-              placeholder="Last Name"
+              placeholder="Uchendu"
               className="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-red-700 focus:bg-white transition-all border border-transparent focus:border-red-200"
             />
           </div>

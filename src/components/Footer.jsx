@@ -1,13 +1,11 @@
 import React, { useRef } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
-import ServicesPage from "../pages/ServicesPage";
-import AboutPage from "../pages/AboutPage";
-import ProductsPage from "../pages/ProductsPage";
-import ContactPage from "../pages/ContactPage";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +35,7 @@ const Footer = () => {
                 <FaFacebookF />
               </a>
               <a href="https://x.com/pristineeye" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-slate-600 hover:bg-red-50 hover:text-red-700 transition">
-                <FaTwitter />
+                <FaXTwitter />
               </a>
               <a href="https://instagram.com/pristineeye" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-slate-600 hover:bg-red-50 hover:text-red-700 transition">
                 <FaInstagram />
