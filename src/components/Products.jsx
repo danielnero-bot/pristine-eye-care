@@ -6,28 +6,29 @@ import Product4 from "../images/glass4.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
     name: "Aura Titanium",
-    price: "$240.00",
+    price: "₦240,000",
     image: Product1,
   },
   {
     name: "Zenith Clear",
-    price: "$185.00",
+    price: "₦185,000",
     image: Product2,
       },
   {
     name: "Noir Classic",
-    price: "$150.00",
+    price: "₦150,000",
     image: Product3,
   },
   {
     name: "Lumina Pearl",
-    price: "$210.00",
+    price: "₦210,000",
     image: Product4,
   }
 ];
@@ -57,9 +58,9 @@ const Products = () => {
             <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Premium Eyewear</h2>
             <p className="text-slate-600">Discover our curated selection of designer frames.</p>
           </div>
-          <button className="hidden md:block text-red-700 font-bold hover:text-red-800 transition">
+          <Link to="/products" className="hidden md:block text-red-700 font-bold hover:text-red-800 transition">
             View All Collection &rarr;
-          </button>
+          </Link>
         </div>
 
         <div className="product-grid flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x hide-scrollbar">

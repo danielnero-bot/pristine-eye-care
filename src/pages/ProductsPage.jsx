@@ -5,6 +5,14 @@ import Footer from '../components/Footer';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import glass1 from "../images/glass1.png";
+import glass2 from "../images/glass2.png";
+import glass3 from "../images/glass3.png";
+import glass4 from "../images/glass4.png";
+import glass5 from "../images/glass5.png";
+import glass6 from "../images/glass6.png";
+import glass7 from "../images/glass7.png";
+import glass8 from "../images/glass8.png";  
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,26 +22,24 @@ const products = [
     name: "Aura Titanium",
     category: "frames",
     desc: "Ultra-lightweight aerospace-grade titanium frames for all-day comfort.",
-    price: "$240.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "none"
+    price: "₦240,000",
+    image: glass1
   },
   {
     id: 2,
     name: "Zenith Clear",
     category: "lenses",
     desc: "Premium anti-reflective computer lenses designed to reduce eye strain.",
-    price: "$185.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "hue-rotate(180deg)"
+    price: "₦185,000",
+    image: glass2
   },
   {
     id: 3,
     name: "Noir Classic",
     category: "sunglasses",
     desc: "Timeless polarized sunglasses offering 100% UVA/UVB protection.",
-    price: "$150.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
+    price: "₦150,000",
+    image: glass3,
     filter: "grayscale(100%)"
   },
   {
@@ -41,45 +47,40 @@ const products = [
     name: "Lumina Pearl",
     category: "glasses",
     desc: "Elegant transparent acetate frames perfect for a minimal aesthetic.",
-    price: "$210.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "sepia(50%)"
+    price: "₦210,000",
+    image: glass4
   },
   {
     id: 5,
     name: "Onyx Reader",
     category: "glasses",
     desc: "Professional matte black reading glasses with enhanced durability.",
-    price: "$120.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "invert(10%) grayscale(80%)"
+    price: "₦120,000",
+    image: glass5
   },
   {
     id: 6,
     name: "Vista Sport",
     category: "sunglasses",
     desc: "Wraparound performance sunglasses for high-glare active environments.",
-    price: "$190.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "hue-rotate(90deg) contrast(120%)"
+    price: "₦190,000",
+    image: glass6
   },
   {
     id: 7,
     name: "Eclipse Transitions",
     category: "lenses",
     desc: "Smart photochromic lenses that adapt seamlessly to varying light conditions.",
-    price: "$275.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "brightness(80%) contrast(150%)"
+    price: "₦275,000",
+    image: glass7
   },
   {
     id: 8,
     name: "Gold Wireframe",
     category: "frames",
     desc: "Classic 14k gold-plated wireframes offering a vintage, sophisticated look.",
-    price: "$320.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=800&auto=format&fit=crop",
-    filter: "sepia(100%) saturate(200%) hue-rotate(15deg)"
+    price: "₦320,000",
+    image: glass8
   }
 ];
 
